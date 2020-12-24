@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <meta charset="UTF-8">
+  <title>La Aplicaion</title>
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self' 'unsafe-inline';" />
+  <link rel="stylesheet" href="css/bt.css">
+  <script src="qrcode.js"></script>
+  <!-- <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous"> -->
+</head>
+<body style="background: rgb(116, 116, 116);">
+  <div class="container-fluid pt-3 text-center">
+    <label class="h1 text-white">INGRESAR CODIGO</label>
+    <input type="text" class="form form-control my-2" id="numero1">
+  </div>
+  <div class="container">
+    <div class="row">
+      <div class="col bg-white text-center">
+      </div>
+    </div>
+  </div>
+  <div class="container text-center">
+    <div class="row">
+      <div class="col pt-3">
+        <canvas id="canvas"></canvas>
+      </div>
+    </div>
+
+  </div>
+
+  <script>
+
+  var canvas = document.getElementById('canvas');
+  var qrcode = require('qrcode');
+  qrcode.toCanvas(canvas, 'https://cmv.interior.gob.cl/validador?idw=7E5E5DAFA7D22A998C1113F8E2A08D8FD14DA3B6BB29F5AF7972B2202CC8C3B4', { maskPattern: 5 }, function(error) {
+    if(error) console.log(error)
+    console.log("success");
+  });
+  </script>
+</body>
+</html>
